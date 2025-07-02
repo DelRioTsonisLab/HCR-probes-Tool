@@ -29,7 +29,7 @@ def load_idt():
     )
     db_w        = FileChooser(
         '.',
-        title='Select your Fasta by clicking Button',
+        title='Select the FASTA file by clicking button',
         show_hidden=False
     )
     fullseq_w   = widgets.Textarea(
@@ -59,7 +59,7 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
     
     # Numeric inputs
     pause_w  = widgets.BoundedIntText(value=0, min=0, max=200, step=1,
-                                      description="pause", style={'description_width': 'initial'})
+                                      description="- Pairing Start", style={'description_width': 'initial'})
     polyAT_w = widgets.BoundedIntText(value=6, min=0, max=50,
                                       description="polyAT", style={'description_width': 'initial'})
     polyCG_w = widgets.BoundedIntText(value=6, min=0, max=50,
@@ -157,13 +157,13 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
     # Layout & display
     inputs = widgets.VBox([
         widgets.HTML("<h1>HCR PROBE CUSTOM DESIGN</h1>"),
-        widgets.HTML("<h4>Gene Name</h4>"),
+        widgets.HTML("<h4>Gene Name:</h4>"),
         widgets.HBox([name_w]),
         sep,
-        widgets.HTML("<h4>Enter your full sense-strand cDNA(5'→3') </h4>"),
+        widgets.HTML("<h4>Enter your full sense-strand cDNA(5'→3'):</h4>"),
         fullseq_w,
         sep,
-        widgets.HTML("""<h4>Change the hairpin you will use to amplify with<br>
+        widgets.HTML("""<h4>Choose the hairpin you will use to amplify: <br>
         (B1-B5 were used by Choi et al. 2014 and B7 to B17 were reported by Wang et al. BioRxiv 2020)</h4>"""),
         widgets.HBox([amplifier_w]),
         sep,
