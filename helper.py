@@ -29,7 +29,7 @@ def load_idt():
     )
     db_w        = FileChooser(
         '.',
-        title='Select the FASTA file by clicking button',
+        #title='Select the FASTA file by clicking button',
         show_hidden=False
     )
     fullseq_w   = widgets.Textarea(
@@ -59,7 +59,7 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
     
     # Numeric inputs
     pause_w  = widgets.BoundedIntText(value=0, min=0, max=200, step=1,
-                                      description="- Pairing Start", style={'description_width': 'initial'})
+                                      description="Pairing Start", style={'description_width': 'initial'})
     polyAT_w = widgets.BoundedIntText(value=6, min=0, max=50,
                                       description="polyAT", style={'description_width': 'initial'})
     polyCG_w = widgets.BoundedIntText(value=6, min=0, max=50,
@@ -172,7 +172,7 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
         widgets.HTML("<h4>Change the tolerated homopolymer lengths of (poly-A & poly-T) and/or (poly-C & poly-G)</h4>"),
         widgets.HBox([polyAT_w, polyCG_w]),
         sep,
-        widgets.HTML("<h4>Specify the directory path of the FASTA file to be used as the BLASTn subject:</h4>"),
+        widgets.HTML("<h4>Select the FASTA file to be used as the BLASTn subject:</h4>"),
         db_w,
         sep,
         widgets.VBox([
