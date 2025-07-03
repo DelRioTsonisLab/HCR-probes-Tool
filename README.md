@@ -17,9 +17,9 @@ The original software was released under the **GPL-3.0 license**, and this versi
 
 ## Requirements
 
-- Python 3.10.12+
-- Jupyter Notebook 7.0.4
-- `blastn` from **NCBI BLAST+ v2.14.1+**
+- [**Python** v3.10.12+](https://www.python.org/downloads/)
+- [**Jupyter Notebook** v7.0.4](https://docs.jupyter.org/en/latest/install/notebook-classic.html)
+- `blastn` from [**NCBI BLAST+ v2.14.1+**](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.14.1/)
 - packages.txt (complete list of installed Python packages)
 
 ---
@@ -27,9 +27,9 @@ The original software was released under the **GPL-3.0 license**, and this versi
 ## Example Use
 
 Run *HCR_Probe_Tool.ipynb* to design a max number of probes:
-1. See the included `Vignette.html` for a full example of how the tool was used with PRDM16 cDNA and Gallus gallus as the reference species.
+1. See the included `Vignette.html` for a full example of how the tool was used with PRDM16 cDNA and *Gallus gallus* as the reference species.
 
 To perform off-target filtering using BLAST:
-1. Download and install [NCBI BLAST+ 2.14.1+](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.14.1/)
+1. Download and install `blastn`
 2. Download the cDNA reference FASTA file for your species of interest.  
-   For example, for chicken (Gallus gallus): *Gallus_gallus.bGalGal1.mat.broiler.GRCg7b.cdna.all.fa*
+   For example, for chicken (*Gallus gallus*): **Gallus_gallus.bGalGal1.mat.broiler.GRCg7b.cdna.all.fa**
