@@ -176,15 +176,11 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
         db_w,
         sep,
         widgets.VBox([
-            widgets.HTML("""<h4>Do you want to be able to select between potential longest probe sets?<br>
-            (Unchecking defaults parameters)</h4>"""),
-            choose_w,
-            widgets.HTML("<h4>Do you want to eliminate probes that appear in low quality BLAST outputs?</h4>"),
+            widgets.HTML("""<h4>(Unchecking defaults parameters)<br><br>
+            Do you want to eliminate probes that appear in low quality BLAST outputs?</h4>"""),
             dropout_w,
             widgets.HTML("<h4>Toggle on/off whether a BLASTn search is performed on the potential probes or the original input cDNA:</h4>"),
             BlastProbes_w,
-            #widgets.HTML("<h4>Do you want to limit the number of probes made</h4>"),
-            #maxprobe_w,
             widgets.HTML("<h4>Do you want to display detailed BLAST outputs?</h4>"),
             show_w,
             widgets.HTML("<h4>Do you want to display chosen parameters in output?</h4>"),
