@@ -88,7 +88,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
 
 
     def max33(maxprobe,seqs,numbr):
-        if maxprobe == 'n': #yo le puse NO y funcionaba, yes y no sabemos
+        if maxprobe == 'n': #removing the restriccion of max number of 33 pair bases
             if int(numbr) < int(len(seqs)):
                 reduced = []
                 entry = np.zeros(len(seqs))
@@ -128,7 +128,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                         pass     
                 return(reduced)
             elif  int(numbr) >=  int(len(seqs)):
-                print("There was were fewer than "+str(numbr)+" pairs, no action taken.")
+                #print("There was were fewer than "+str(numbr)+" pairs, no action taken.")
                 return(seqs)
         else:
             return(seqs)
