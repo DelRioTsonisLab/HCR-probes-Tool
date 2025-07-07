@@ -261,16 +261,28 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
             # Clean sequence
             user_ns['fullseq'] = re.sub(r'\s+', '', seq_w.value)
             user_ns['amplifier'] = amplifier_w.value
-            
+
             # 3) FASTA file chosen?
-            if not use_fasta.value:
-                if not db_w.selected:
-                    print("❌ Error: please select a FASTA file for blastting from the directory chooser...") 
-                    return
-                user_ns['db'] = db_w.selected
+            blast_flag = BlastProbes_w.value
+            if blast_flag:
+                # Use the same FASTA (fasta_w) that used in "Select transcripts"
+                if use_fasta.value:
+                    # fasta_w.selected es el FileChooser de tu FASTA de cDNA
+                    user_ns['db'] = os.path.join(
+                        fasta_w.selected_path,
+                        fasta_w.selected_filename
+                    )
+                else:
+                    # Use the FASTA (db_w) by selectting manually the transcript sequence
+                    user_ns['db'] = db_w.selected
+                # is there?
+                # if not db_w.selected:
+                #     print("❌ Error: FASTA invalid for BLASTn...")
+                    # return
             else:
-                # En modo FASTA-transcript no usamos FASTA extra para BLASTn
+                # dont blast with BLASTn, FASTA is not enter
                 user_ns['db'] = None
+
     
             # store every widget value into user_ns
             user_ns['name']       = name_w.value
@@ -280,8 +292,8 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
             user_ns['choose']     = 'y' if choose_w.value else 'n'
             user_ns['polyAT']     = polyAT_w.value
             user_ns['polyCG']     = polyCG_w.value
-            user_ns['BlastProbes']= 'y' if BlastProbes_w.value else 'n'
-            user_ns['db']         = db_w.selected
+            user_ns['BlastProbes']= 'y' if blast_flag else 'n' #'y' if BlastProbes_w.value else 'n'
+            #user_ns['db']         = db_w.selected
             user_ns['dropout']    = 'y' if dropout_w.value else 'n'
             user_ns['show']       = 'y' if show_w.value else 'n'
             user_ns['report']     = 'y' if report_w.value else 'n'
