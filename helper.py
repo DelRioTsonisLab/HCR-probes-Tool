@@ -10,6 +10,12 @@ from IPython.display import display, clear_output
 from Bio import SeqIO
 from makercb import maker  # Load IDT probe generator
 
+# Append the local "bin" folder to PATH
+current_dir = os.getcwd()
+blast_bin = os.path.join(current_dir, "bin")
+os.environ["PATH"] += os.pathsep + blast_bin
+
+# Function
 def load_idt():
     # get user namespace to set globals in the notebook
     user_ns = get_ipython().user_ns
