@@ -66,11 +66,11 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
     )
     
     # Numeric inputs
-    pause_w  = widgets.BoundedIntText(value=0, min=0, max=200, step=1,
+    pause_w  = widgets.BoundedIntText(value=0, min=0, max=10000, step=1,
                                       description="Pairing Start", style={'description_width': 'initial'})
-    polyAT_w = widgets.BoundedIntText(value=6, min=0, max=50,
+    polyAT_w = widgets.BoundedIntText(value=5, min=0, max=1000,
                                       description="polyAT", style={'description_width': 'initial'})
-    polyCG_w = widgets.BoundedIntText(value=6, min=0, max=50,
+    polyCG_w = widgets.BoundedIntText(value=5, min=0, max=1000,
                                       description="polyCG", style={'description_width': 'initial'})
     numbr_w  = widgets.IntText(value=0, description="numbr")
     
