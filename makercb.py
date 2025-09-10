@@ -87,7 +87,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
         return([upspc,dnspc,up,dn])
 
 
-    def max33(maxprobe,seqs,numbr):
+    def maxtarget(maxprobe,seqs,numbr):
         if maxprobe == 'n': #removing the restriccion of max number of 33 pair bases
             if int(numbr) < int(len(seqs)):
                 reduced = []
@@ -330,7 +330,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
     
     
         if BlastProbes == 'n':
-            newlist = max33(maxprobe, newlist, numbr)
+            newlist = maxtarget(maxprobe, newlist, numbr)
             count = str(len(newlist))
         
             output_file = f"{name}_{amplifier}_opool.txt"
@@ -519,7 +519,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                             while a <len(remove["pos1"]):
                                 seqs[a] = (remove["pos1"][a],remove["seq"][a],remove["pos2"][a],remove["fasta"][a],remove["num"][a])
                                 a += 1
-                    seqs = max33(maxprobe,seqs,numbr)
+                    seqs = maxtarget(maxprobe,seqs,numbr)
                     count = str(len(seqs))
                     print()
                     print()
