@@ -8,7 +8,6 @@ import ipywidgets as widgets
 from ipyfilechooser import FileChooser
 from IPython.display import display, clear_output
 from Bio import SeqIO
-from makercb import maker  # Load IDT probe generator
 
 # Append the local "bin" folder to PATH
 current_dir = os.getcwd()

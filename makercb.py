@@ -415,9 +415,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
             while a < len(newlist):
                 nm = str('>'+str(a))
                 seqs[a] = [newlist[a][0],str(fullseq[newlist[a][0]:(newlist[a][0]+25)]+"nn"+fullseq[(newlist[a][0]+27):newlist[a][1]]),newlist[a][1],nm,a]
-                remove = remove.append({'pos1' : newlist[a][0], 
-                                        'seq' : str(fullseq[newlist[a][0]:(newlist[a][0]+25)]+"nn"+fullseq[(newlist[a][0]+27):newlist[a][1]]), 
-                                        'pos2' : newlist[a][1], 'fasta':nm, 'num':a}, ignore_index = True) 
+                remove.loc[a,['pos1','seq','pos2','fasta','num']] = [newlist[a][0] , str(fullseq[newlist[a][0]:(newlist[a][0]+25)]+"nn"+fullseq[(newlist[a][0]+27):newlist[a][1]]), newlist[a][1],nm, a]
                 tmpFA.write(nm)
                 tmpFA.write('\n')
                 tmpFA.write(seqs[a][1])
@@ -434,7 +432,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
             stdout, stderr = cline() #cline() calls the string as a command and passes it to the command line, outputting the blast results to one variable and errors to the other
 
             ## From results of blast creating a numpy array (and Pandas database)
-            dt = [(np.unicode_,8),(np.unicode_,40),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.float64),(np.float64)]
+            dt = [(np.str_,8),(np.str_,40),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.float64),(np.float64)]
             blastresult = (np.genfromtxt(io.StringIO(stdout),delimiter = '\t',dtype = dt))# "qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore")
            
             

@@ -17,9 +17,9 @@ The original software was released under the **GPL-3.0 license**, and this versi
 
 ## Requirements
 
-- [**Python** v3.10.12+](https://www.python.org/downloads/)
+- [**Python** v3.12.11+](https://www.python.org/downloads/)
 - [**Jupyter Notebook** v7.0.4](https://docs.jupyter.org/en/latest/install/notebook-classic.html)
-- `blastn` from [**NCBI BLAST+ v2.14.1+**](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.14.1/)
+- `blastn` from [**NCBI BLAST+ v2.17.0+**](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.17.0/)
 - packages.txt (complete list of Python packages)
 
 ---
@@ -56,7 +56,7 @@ To perform off-target filtering using BLAST
    * For example, for newt (*Pleurodeles walt*): **GCF_031143425.1_aPleWal1_rna.fna** from NCBI
 
 4. For users not familiar with Linux:
-   * Use Anaconda Navigator to install `Python 3.10` and `Jupyter Notebook` in an user-friendly environment.
+   * Use Anaconda Navigator to install `Python 3.12` and `Jupyter Notebook` in an user-friendly environment.
    * Once you open your notebook, just uncomment the thrird cell and **RUN** at once, when it finishes, comment it again to avoid troubles later.
      ```python
      %pip install -r packages.txt
