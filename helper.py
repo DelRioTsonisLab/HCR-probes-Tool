@@ -314,7 +314,7 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
 
     # Display layout
     inputs = widgets.VBox([
-        widgets.HTML("<h1>HCR PROBE CUSTOM DESIGN</h1>"),
+        widgets.HTML("<h1>Custom Probe Design Parameters</h1>"),
         widgets.HTML("<h4>Gene Name:</h4>"),
         widgets.HBox([name_w]),
         sep,
@@ -338,7 +338,7 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
         manual_box,
         sep,
         widgets.VBox([
-            widgets.HTML("""<h4>(Checking defaults parameters)<br><br>
+            widgets.HTML("""<h4>DEFAULTS PARAMETERS<br><br>
             Perform BLASTn on:</h4>"""),
             BlastProbes_w,
             widgets.HTML("<h4>Do you want to eliminate probes that appear in low quality BLAST outputs?</h4>"),
