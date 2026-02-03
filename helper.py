@@ -313,8 +313,8 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
 
     # Display layout
     inputs = widgets.VBox([
-        widgets.HTML("<h1>HCR PROBE CUSTOM DESIGN</h1>"),
-        widgets.HTML("<h4>Gene Name:</h4>"),
+        widgets.HTML("<h1>Custom Probe Design Parameters</h1>"),
+        widgets.HTML("<h4>Gene Symbol:</h4>"),
         widgets.HBox([name_w]),
         sep,
         widgets.HTML("<h4>Enter your full sense-strand cDNA(5'→3'):</h4>"),
@@ -329,7 +329,7 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
         sep,
         widgets.HTML("<h4>How many bases from the 5' end of the Sense RNA before starting to hybridize?</h4>"),
         pause_w,
-        widgets.HTML("<h4>Change the tolerated homopolymer lengths of (poly-A & poly-T) and/or (poly-C & poly-G):</h4>"),
+        widgets.HTML("<h4>Change the tolerated homopolymer lengths for poly (A & T) and poly (C & G):</h4>"),
         widgets.HBox([polyAT_w, polyCG_w]),
         sep,
         #widgets.HTML("<h4>Select the FASTA file to be used as the BLASTn subject:</h4>"),
@@ -337,7 +337,7 @@ TAAAGACCAAACCGCCTCCTGGAAGTTAAACTTCAATGCTGACTGCTTGGATTATAAAGA""",
         manual_box,
         sep,
         widgets.VBox([
-            widgets.HTML("""<h4>(Checking defaults parameters)<br><br>
+            widgets.HTML("""<h4>DEFAULTS PARAMETERS<br><br>
             Perform BLASTn on:</h4>"""),
             BlastProbes_w,
             widgets.HTML("<h4>Do you want to eliminate probes that appear in low quality BLAST outputs?</h4>"),
