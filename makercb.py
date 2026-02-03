@@ -333,7 +333,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
         if BlastProbes == 'n':
             newlist = maxtarget(maxprobe, newlist, numbr)
             count = str(len(newlist))
-            output_dir = "outputs"
+            output_dir = f"{name}_output"
             os.makedirs(output_dir, mode=0o777, exist_ok=True)
             output_file = f"{output_dir}/{name}_{amplifier}_opool.txt"
             data_rows = []
@@ -413,7 +413,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
             seqs={} 
             remove = pd.DataFrame(columns = ["pos1","seq","pos2","fasta","num"])
             a=0
-            output_dir = "outputs"
+            output_dir = f"{name}_output"
             os.makedirs(output_dir, mode=0o777, exist_ok=True)
             tmpFA_output_file = f"{output_dir}/{name}_PrelimProbes.fa"
             tmpFA = open(tmpFA_output_file, "w")
@@ -528,7 +528,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                     print()
                     print()
                     print() 
-                    output_dir = "outputs"
+                    output_dir = f"{name}_output"
                     os.makedirs(output_dir, mode=0o777, exist_ok=True)
                     output_file = f"{output_dir}/{name}_{amplifier}_opool.txt"
                     with open(output_file, "w") as txt: 
@@ -567,7 +567,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                     
                         # Guardar en Excel
                         df = pd.DataFrame(excel_data, columns=["Pool name", "Sequence"])
-                        xlsx_file = f"{name}_{amplifier}.xlsx"
+                        xlsx_file = f"{output_dir}/{name}_{amplifier}.xlsx"
                         df.to_excel(xlsx_file, index=False)
                     
                         # Complementaria reversa
