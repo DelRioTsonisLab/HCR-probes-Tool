@@ -24,10 +24,10 @@ Setup in Colab
 1. Click `Colab_Probe_Tool.ipynb` in this GitHub repository and copy its **URL**.
 <img src="docs/images/Copy_URL.png" width="500">
 
-2. In Google Colab, choose **File** and **Open notebook**.
+2. In [Google Colab](https://colab.research.google.com) choose **File** and **Open notebook**.
 <img src="docs/images/Open_Colab.png" width="500">
 
-3. Click in **Github** section, paste the URL in the **Search** and click in **Open notebook in new tab**
+3. Select the **Github** tab, paste the URL in the **Search** field and click ↗️ icon to open notebook in a new tab.
 <img src="docs/images/Open_Notebook.png" width="500">
 
 Make a copy in Drive
