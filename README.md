@@ -20,22 +20,25 @@ Open `Colab_Probe_Tool.ipynb` in Colab and follow the steps below in order (Setu
 
 Setup in Colab
 |--------------------------------------------|
-1. Click `Colab_Probe_Tool.ipynb` in this GitHub repository and copy its URL.
+
+1. Click `Colab_Probe_Tool.ipynb` in this GitHub repository and copy its **URL**.
+<img src="docs/images/Copy_URL.png" width="500">
+
+2. In Google Colab, choose **File** and **Open notebook**.
 <img src="docs/images/Open_Colab.png" width="500">
-3. In Google Colab, choose **File** → **Open notebook** and paste the URL, in the **Search notebook**.
-<img src="docs/images/Open_Colab.png" width="500">
-4. After, click in **Open notebook in new tab**
+
+3. Click in **Github** section, paste the URL in the **Search** and click in **Open notebook in new tab**
 <img src="docs/images/Open_Notebook.png" width="500">
 
 Make a copy in Drive
 |--------------------------------------------|
-1. Once the notebook opens, click in **Copy to Drive** to run and edit your own copy.
+4. Once the notebook opens, click in **Copy to Drive** to run and edit your own copy.
 <img src="docs/images/Copy_to_Drive.png" width="500">
 
 ---
 
 ## Run on your desktop (optional)
-Local requirements and setup instructions are provided in Requirements and General Workflow below.
+Local setup instructions are provided in Requirements and General Workflow below.
 
 ---
 
@@ -50,7 +53,7 @@ Local requirements and setup instructions are provided in Requirements and Gener
 
 ## General Workflow
 
-Run *HCR_Probe_Tool.ipynb* to design a max number of probes
+Run *HCR_Probe_Tool.ipynb* to design probes
 |--------------------------------------------|
 1. See the included `Vignette.html` for a full example of how the tool was used with Pax6 and *Pleurodeles walt* cDNA as the reference species.
 
