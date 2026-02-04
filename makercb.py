@@ -1,4 +1,5 @@
 import csv
+import os
 def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropout,show,report,maxprobe,numbr): 
     from Bio.Seq import Seq
     from Bio.Blast.Applications import NcbiblastnCommandline as bn
@@ -332,8 +333,9 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
         if BlastProbes == 'n':
             newlist = maxtarget(maxprobe, newlist, numbr)
             count = str(len(newlist))
-        
-            output_file = f"{name}_{amplifier}_opool.txt"
+            output_dir = f"{name}_output"
+            os.makedirs(output_dir, mode=0o777, exist_ok=True)
+            output_file = f"{output_dir}/{name}_{amplifier}_opool.txt"
             data_rows = []
         
             with open(output_file, "w") as txt:
@@ -388,7 +390,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
         
             # (Opcional) Convertir a Excel directamente desde el mismo loop
             df = pd.DataFrame(data_rows, columns=["Pool name", "Sequence"])
-            xlsx_file = f"{name}_{amplifier}.xlsx"
+            xlsx_file = f"{output_dir}/{name}_{amplifier}.xlsx"
             df.to_excel(xlsx_file, index=False)
             
         else:
@@ -411,13 +413,14 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
             seqs={} 
             remove = pd.DataFrame(columns = ["pos1","seq","pos2","fasta","num"])
             a=0
-            tmpFA = open((str(name)+"PrelimProbes.fa"), "w")
+            output_dir = f"{name}_output"
+            os.makedirs(output_dir, mode=0o777, exist_ok=True)
+            tmpFA_output_file = f"{output_dir}/{name}_PrelimProbes.fa"
+            tmpFA = open(tmpFA_output_file, "w")
             while a < len(newlist):
                 nm = str('>'+str(a))
                 seqs[a] = [newlist[a][0],str(fullseq[newlist[a][0]:(newlist[a][0]+25)]+"nn"+fullseq[(newlist[a][0]+27):newlist[a][1]]),newlist[a][1],nm,a]
-                remove = remove.append({'pos1' : newlist[a][0], 
-                                        'seq' : str(fullseq[newlist[a][0]:(newlist[a][0]+25)]+"nn"+fullseq[(newlist[a][0]+27):newlist[a][1]]), 
-                                        'pos2' : newlist[a][1], 'fasta':nm, 'num':a}, ignore_index = True) 
+                remove.loc[a,['pos1','seq','pos2','fasta','num']] = [newlist[a][0] , str(fullseq[newlist[a][0]:(newlist[a][0]+25)]+"nn"+fullseq[(newlist[a][0]+27):newlist[a][1]]), newlist[a][1],nm, a]
                 tmpFA.write(nm)
                 tmpFA.write('\n')
                 tmpFA.write(seqs[a][1])
@@ -430,11 +433,11 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
             
         ## Probe BLAST setup and execution from FASTA file prepared in previous step
 
-            cline = bn(query = str(name)+"PrelimProbes.fa", subject = db, outfmt = 6, task = 'blastn-short') #this uses biopython's blastn formatting function and creates a commandline compatible command 
+            cline = bn(query = tmpFA_output_file, subject = db, outfmt = 6, task = 'blastn-short') #this uses biopython's blastn formatting function and creates a commandline compatible command 
             stdout, stderr = cline() #cline() calls the string as a command and passes it to the command line, outputting the blast results to one variable and errors to the other
 
             ## From results of blast creating a numpy array (and Pandas database)
-            dt = [(np.unicode_,8),(np.unicode_,40),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.float64),(np.float64)]
+            dt = [(np.str_,8),(np.str_,40),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.int32),(np.float64),(np.float64)]
             blastresult = (np.genfromtxt(io.StringIO(stdout),delimiter = '\t',dtype = dt))# "qseqid,sseqid,pident,length,mismatch,gapopen,qstart,qend,sstart,send,evalue,bitscore")
            
             
@@ -524,7 +527,11 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                     print()
                     print()
                     print()
-                    with open(f"{name}_{amplifier}_opool.txt", "w") as txt: 
+                    print() 
+                    output_dir = f"{name}_output"
+                    os.makedirs(output_dir, mode=0o777, exist_ok=True)
+                    output_file = f"{output_dir}/{name}_{amplifier}_opool.txt"
+                    with open(output_file, "w") as txt: 
                         txt.write("The probes are provided below in IDT oPool submission format.\n")
                         txt.write("Copy and Paste the lines below into an XLSX file for submission to IDT starting from 'Pool name'.\n\n")
                         txt.write("Pool name, Sequence\n")
@@ -560,7 +567,7 @@ def maker(name,fullseq,amplifier,pause,choose,polyAT,polyCG,BlastProbes,db,dropo
                     
                         # Guardar en Excel
                         df = pd.DataFrame(excel_data, columns=["Pool name", "Sequence"])
-                        xlsx_file = f"{name}_{amplifier}.xlsx"
+                        xlsx_file = f"{output_dir}/{name}_{amplifier}.xlsx"
                         df.to_excel(xlsx_file, index=False)
                     
                         # Complementaria reversa
