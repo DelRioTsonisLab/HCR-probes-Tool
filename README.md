@@ -1,17 +1,39 @@
-# HCR PROBE CUSTOM DESIGN
+# HCR Probe design for IDT ordering
 
 ## Overview
-
-**HCR Probe Custom Design** is a streamlined tool for designing probe sets for Hybridization Chain Reaction (HCR) in-situ experiments, with the goal of **maximizing the number of probes** found for your target gene.
-
-This tool is a **re-worked and extended version of the HCR3.0 Probe Maker** originally developed by [The Ozpolat Lab](https://bduyguozpolat.org/). 
-The original software was released under the **GPL-3.0 license**, and this version maintains that license.
+This repository provides a guided, reproducible workflow for designing HCR-FISH probe sets, with documentation supporting both cloud-based and desktop usage.
+This tool is an **adapted version of the open-source HCR3.0 Probe Maker** originally developed by [The Ozpolat Lab](https://bduyguozpolat.org/). 
+The original software was released under the **GPL-3.0 license**, and this repository maintains the same license.
 
 ---
 
 ## Features
 
-> This custom-designed pipeline increases the number of probes in a user-friendly Jupyter Notebook.
+> Google Colab-hosted Jupyter Notebook workflow (no local setup required)
+
+> Exports an order-ready `.xlsx` table for commercial synthesis (e.g. IDT)
+
+---
+
+## Run in Google Colab (recommended)
+Open `HCR_Probe_Tool.ipynb` in Colab and follow the steps below in order (Setup in Colab + Make a copy in Drive).
+
+Setup in Colab
+|--------------------------------------------|
+1. Click `HCR_Probe_Tool.ipynb` in this GitHub repository and copy its URL. 
+2. In Google Colab, choose **File** → **Open notebook** and paste the URL, in the **Search notebook**.
+3. After, click in **Open notebook in new tab**
+<img src="docs/images/Colab_Notebook_open.PNG" width="800">
+
+Make a copy in Drive
+|--------------------------------------------|
+1. Once the notebook opens, click in **Copy to Drive** to run and edit your own copy.
+<img src="docs/images/Colab_Notebook_CopyToDrive.PNG" width="800">
+
+---
+
+## Run on your desktop (optional)
+Local requirements and setup instructions are provided in Requirements and General Workflow below.
 
 ---
 
