@@ -84,7 +84,7 @@ To perform off-target filtering using BLAST
 
 4. For users not familiar with Linux:
    * Use Anaconda Navigator to install `Python 3.12` and `Jupyter Notebook` in an user-friendly environment.
-   * Once you open your notebook, just uncomment the thrird cell and **RUN** at once, when it finishes, comment it again to avoid troubles later.
+   * Once you open your notebook, just uncomment the third cell and **RUN** at once, when it finishes, comment it again to avoid troubles later.
      ```python
      %pip install -r packages.txt
      ```
