@@ -16,19 +16,21 @@ The original software was released under the **GPL-3.0 license**, and this repos
 ---
 
 ## Run in Google Colab (recommended)
-Open `HCR_Probe_Tool.ipynb` in Colab and follow the steps below in order (Setup in Colab + Make a copy in Drive).
+Open `Colab_Probe_Tool.ipynb` in Colab and follow the steps below in order (Setup in Colab + Make a copy in Drive).
 
 Setup in Colab
 |--------------------------------------------|
-1. Click `HCR_Probe_Tool.ipynb` in this GitHub repository and copy its URL. 
-2. In Google Colab, choose **File** → **Open notebook** and paste the URL, in the **Search notebook**.
-3. After, click in **Open notebook in new tab**
-<img src="docs/images/Colab_Notebook_open.PNG" width="800">
+1. Click `Colab_Probe_Tool.ipynb` in this GitHub repository and copy its URL.
+<img src="docs/images/Open_Colab.png" width="500">
+3. In Google Colab, choose **File** → **Open notebook** and paste the URL, in the **Search notebook**.
+<img src="docs/images/Open_Colab.png" width="500">
+4. After, click in **Open notebook in new tab**
+<img src="docs/images/Open_Notebook.png" width="500">
 
 Make a copy in Drive
 |--------------------------------------------|
 1. Once the notebook opens, click in **Copy to Drive** to run and edit your own copy.
-<img src="docs/images/Colab_Notebook_CopyToDrive.PNG" width="800">
+<img src="docs/images/Copy_to_Drive.png" width="500">
 
 ---
 
